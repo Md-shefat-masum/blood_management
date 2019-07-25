@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\ajax_table;
 
-class CrudController extends Controller
+class ajaxTable extends Controller
 {
-    /*public function __construct(){
-        $this->middleware('auth');
-    }*/
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +14,8 @@ class CrudController extends Controller
      */
     public function index()
     {
-        $posts = Post::get();
-        return response()->json($posts);
+        $post = ajax_table::get();
+        return response()->json($post);
     }
 
     /**
@@ -28,7 +25,7 @@ class CrudController extends Controller
      */
     public function create()
     {
-        return view('ajax');
+        return view('admin.ajaxCrud');
     }
 
     /**
@@ -39,7 +36,7 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Post::create($request->all());
+        $post = ajax_table::create($request->all());
         return response()->json($post);
     }
 
@@ -62,7 +59,7 @@ class CrudController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = ajax_table::find($id);
         return response()->json($post);
     }
 
@@ -75,7 +72,7 @@ class CrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id)->update($request->all());
+        $post = ajax_table::find($id)->update($request->all());
         return response()->json($post);
     }
 
@@ -87,7 +84,7 @@ class CrudController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
+        ajax_table::find($id)->delete();
         return response()->json(['done']);
     }
 }

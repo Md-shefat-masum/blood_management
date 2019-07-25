@@ -9,6 +9,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('contents/admin/assets')}}/images/favicon.png">
+
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery.dataTables.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/dataTables.bootstrap4.js') }}" type="text/javascript"></script>
+
+
     <link href="{{asset('contents/admin/assets')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('contents/admin/assets')}}/plugins/morrisjs/morris.css" rel="stylesheet">
     <link href="{{asset('contents/admin/assets')}}/plugins/html5-editor/bootstrap-wysihtml5.css" rel="stylesheet" />
@@ -18,6 +26,7 @@
     {{-- <link href="{{asset('contents/admin')}}/css/colors/blue-dark.css" id="theme" rel="stylesheet"> --}}
     <link href="{{asset('contents/admin')}}/css/colors/blue.css" id="theme" rel="stylesheet">
     <link href="{{asset('contents/admin')}}/css/own-style.css" id="theme" rel="stylesheet">
+
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -226,7 +235,13 @@
     <script src="{{asset('contents/admin/assets')}}/plugins/html5-editor/bootstrap-wysihtml5.js"></script>
     <script src="{{asset('contents/admin/assets')}}/plugins/dropify/dist/js/dropify.min.js"></script>
     <script src="{{asset('contents/admin')}}/js/validation.js"></script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
     <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
         $(document).ready(function() {
             $('.textarea_editor').wysihtml5();
 

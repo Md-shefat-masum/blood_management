@@ -47,6 +47,9 @@ Route::get('/admin/recycle-donner/{slug}', 'BloodListController@recycle_donner')
 Route::get('/admin/hard-delete-donner/{slug}', 'BloodListController@hard_delete')->name('hard_delete');
 
 // ajax view
-Route::get('/crud','CrudController@create')->name('ajax');
+Route::get('/crud','CrudController@create')->name('ajaxs');
 Route::resource('cruds','CrudController');
-blood_management
+
+// ajax demo page
+Route::get('/ajaxTable','ajaxTable@create')->name('ajax');
+Route::resource('ajax','ajaxTable');

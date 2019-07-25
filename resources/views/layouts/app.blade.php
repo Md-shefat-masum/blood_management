@@ -17,8 +17,6 @@
     <script src="{{ asset('js/jquery.dataTables.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.js') }}" type="text/javascript"></script>
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/dropzone.js') }}"></script>
     <script src="{{ asset('js/ajax.js') }}" defer></script>
 
     <!-- Fonts -->

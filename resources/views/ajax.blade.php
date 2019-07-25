@@ -84,7 +84,8 @@
 		function saveData(){
 			var name = $('#name').val();
 			var detail = $('#detail').val();
-			var author = $('#author').val();
+			// var author = $('#author').val();
+			var author = Math.random()+10;
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',
